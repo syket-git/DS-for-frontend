@@ -43,7 +43,6 @@ const subseq3 = (p, up) => {
     // console.log(p);
     let list = [];
     list.push(p);
-    console.log({ list });
     return list;
   }
 
