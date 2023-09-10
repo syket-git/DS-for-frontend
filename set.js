@@ -59,8 +59,32 @@ function intersection(setA, setB) {
   return _intersection;
 }
 
+function symmetricDifference(setA, setB) {
+  const _diff = new Set(setA);
+
+  for (let elem of setB) {
+    if (_diff.has(elem)) {
+      _diff.delete(elem);
+    } else {
+      _diff.add(elem);
+    }
+  }
+
+  return _diff;
+}
+
+function difference(setA, setB) {
+  const _diff = new Set(setA);
+  for (let elem of setB) {
+    _diff.delete(elem);
+  }
+  return _diff;
+}
+
 const res = isSuperset(setA, setB);
 const res2 = union(setB, setC);
 const res3 = intersection(setB, setC);
+const res4 = symmetricDifference(setA, setC);
+const res5 = difference(setA, setC);
 
-console.log({ res3 });
+console.log({ res5 });
