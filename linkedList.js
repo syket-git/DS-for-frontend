@@ -49,6 +49,13 @@ class LinkedList {
     return this.nodes.splice(index, 1);
   }
 
+  reverse() {
+    this.nodes = this.nodes.reduce(
+      (acc, { value }) => [{ value, next: acc[0] || null }, ...acc],
+      []
+    );
+  }
+
   clear() {
     this.nodes = [];
   }
@@ -58,7 +65,10 @@ const linkedList = new LinkedList();
 linkedList.insertFirst(5);
 linkedList.insertFirst(6);
 linkedList.insertFirst(7);
-linkedList.removeAt(0);
+// linkedList.removeAt(0);
 linkedList.insertAt(1, 10);
+
+// console.log(linkedList.reverse());
+linkedList.reverse();
 
 console.log(linkedList.head);
